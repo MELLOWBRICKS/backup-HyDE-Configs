@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Update system with pacman
+sudo echo "🔄 Updating system with pacman..."
+sudo pacman -Syu --noconfirm
+
+# Update AUR packages with yay
+echo "
+🚀 Updating AUR packages with yay..."
+yay -Syu --noconfirm
+
+# Update flatpak packages
+echo "
+📦 Updating flatpak packages..."
+flatpak update --assumeyes
+
+# Remove orphaned packages
+echo "
+🗑️ Removing orphaned packages..."
+sudo pacman -Rns $(pacman -Qtdq) --noconfirm 2>/dev/null || echo "✅ No orphaned packages found."
+
+# Remove untracked files from home directory (e.g., AUR build artifacts)
+echo "
+🗑️ Removing untracked files from home directory..."
+rm -rf ~/.cache/yay/* 2>/dev/null || true
+sudo rm -rf /var/tmp/*
+sudo rm -rf /tmp/*
+
+# Clean flatpak unused runtimes
+echo "
+🧽 Cleaning unused flatpak runtimes..."
+flatpak uninstall --unused --assumeyes
+
+echo "
+🎉 System update and cleanup complete!"
