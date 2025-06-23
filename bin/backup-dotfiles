@@ -25,7 +25,6 @@ cp -r $global_scripts $dotfiles
 
 sudo echo -e "\nBackup Completed!!"
 
-#!/bin/bash
 
 echo -e "\033[0;36m  GitHub Backup Assistant\033[0m"
 echo -e "💬  Do you want to push the backup to GitHub? (\033[0;32myes\033[0m/\033[1;33mno\033[0m)"
