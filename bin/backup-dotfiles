@@ -1,0 +1,25 @@
+#!/bin/bash
+sudo echo "taking a backup of dotfiles"
+
+dotfiles="$HOME/backup-HyDE-Configs/"
+hyde="$HOME/.config/hyde/"
+hypr="$HOME/.config/hypr/"
+ff="$HOME/.config/fastfetch/"
+kitty="$HOME/.config/kitty/"
+nvim="$HOME/.config/nvim/"
+
+global_scripts="$HOME/.local/bin/"
+
+echo -e "\n🚀 Taking backup of $hyde ..."
+cp -r $hyde $dotfiles
+echo -e "\n🚀 Taking backup of $hypr ..."
+cp -r $hypr $dotfiles
+echo -e "\n🚀 Taking backup of $ff ..."
+cp -r $ff $dotfiles
+echo -e "\n🚀 Taking backup of $kitty ..."
+cp -r $kitty $dotfiles
+echo -e "\n🚀 Taking backup of $nvim ..."
+cp -r $nvim $dotfiles
+echo -e "\n🚀 Taking backup of $global_scripts ..."
+cp -r $global_scripts $dotfiles
+
