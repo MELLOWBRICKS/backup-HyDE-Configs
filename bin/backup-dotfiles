@@ -24,3 +24,28 @@ echo -e "\n🚀 Taking backup of $global_scripts ..."
 cp -r $global_scripts $dotfiles
 
 sudo echo -e "\nBackup Completed!!"
+
+#!/bin/bash
+
+echo -e "\033[0;36m  GitHub Backup Assistant\033[0m"
+echo -e "💬  Do you want to push the backup to GitHub? (\033[0;32myes\033[0m/\033[1;33mno\033[0m)"
+read -p "➤ " answer
+
+case "$answer" in
+    yes|y|Y|Yes|YES)
+        echo -e "\033[0;32m✅ Committing and pushing to GitHub...\033[0m"
+        git add .
+        git commit -m "last backup on $(date)"
+        git push origin main
+        echo -e "\033[0;32m✅ Backup pushed successfully.\033[0m"
+        ;;
+    no|n|N|No|NO)
+        echo -e "\033[1;33m❌ Committing only (no push)...\033[0m"
+        git add .
+        git commit -m "last backup on $(date)"
+        echo -e "\033[1;33m✅ Backup committed locally.\033[0m"
+        ;;
+    *)
+        echo -e "\033[0;31m❌ Invalid input. Please answer yes or no.\033[0m"
+        ;;
+esac
