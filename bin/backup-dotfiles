@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo echo "Taking a backup of dotfiles"
+sudo echo -e "\033[1;34m📦  Taking a backup of dotfiles...\033[0m"
 
 dotfiles="$HOME/backup-HyDE-Configs/"
 hyde="$HOME/.config/hyde/"
@@ -7,23 +7,27 @@ hypr="$HOME/.config/hypr/"
 ff="$HOME/.config/fastfetch/"
 kitty="$HOME/.config/kitty/"
 nvim="$HOME/.config/nvim/"
-
 global_scripts="$HOME/.local/bin/"
 
-echo -e "\n🚀 Taking backup of $hyde ..."
+echo -e "\n\033[0;36m→ Backing up: $hyde\033[0m"
 cp -r $hyde $dotfiles
-echo -e "\n🚀 Taking backup of $hypr ..."
+
+echo -e "\n\033[0;36m→ Backing up: $hypr\033[0m"
 cp -r $hypr $dotfiles
-echo -e "\n🚀 Taking backup of $ff ..."
+
+echo -e "\n\033[0;36m→ Backing up: $ff\033[0m"
 cp -r $ff $dotfiles
-echo -e "\n🚀 Taking backup of $kitty ..."
+
+echo -e "\n\033[0;36m→ Backing up: $kitty\033[0m"
 cp -r $kitty $dotfiles
-echo -e "\n🚀 Taking backup of $nvim ..."
+
+echo -e "\n\033[0;36m→ Backing up: $nvim\033[0m"
 cp -r $nvim $dotfiles
-echo -e "\n🚀 Taking backup of $global_scripts ..."
+
+echo -e "\n\033[0;36m→ Backing up: $global_scripts\033[0m"
 cp -r $global_scripts $dotfiles
 
-sudo echo -e "\nBackup Completed!!"
+sudo echo -e "\n\033[1;32m✅ Backup Completed!\033[0m"
 
 
 echo -e "\033[0;36m  GitHub Backup Assistant\033[0m"
