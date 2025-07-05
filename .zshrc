@@ -29,7 +29,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Load Oh My Zsh
 source "$ZSH/oh-my-zsh.sh"
 
-
+alias uplock='cat ~/.config/hypr/hyprlock/backup.conf > ~/.config/hypr/hyprlock/theme.conf'
 alias start='vagrant up'
 alias connect='vagrant ssh'
 alias stop='vagrant halt'
@@ -39,10 +39,15 @@ alias cdi='zi'
 #alias fzf='fzf --preview="bat {}"'
 alias fzf='fzf --preview "bat --style=numbers --color=always {}" --preview-window=right:60%'
 
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(zoxide init zsh)"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+export VISUAL=nvim
+export EDITOR=nvim
+cat ~/.config/hypr/hyprlock/backup.conf > ~/.config/hypr/hyprlock/theme.conf
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
