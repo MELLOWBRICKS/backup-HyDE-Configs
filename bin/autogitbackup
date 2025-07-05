@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd ~/april-2025/
+
+if [[ -n $(git status --porcelain) ]]; then
+  echo "Changes detected!"
+  echo "Running your commands..."
+  git switch "Mell's-$(date +%d%B)" || git checkout -b "Mell's-$(date +%d%B)"
+  git add .
+  git commit -m "Auto commit"
+  git push origin "Mell's-$(date +%d%B)"
+else
+  echo "No changes detected. Nothing to do."
+fi

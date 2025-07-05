@@ -1,9 +1,9 @@
 #!/bin/bash
-sudo echo "🔄 Updating system with pacman..."
-sudo pacman -Syu 
+sudo echo -e "\n🔄 Updating system with pacman..."
+sudo pacman -Syu
 
-echo -e "\n🚀 Updating AUR packages with yay..."
-yay -Syu 
+echo -e "\n🚀 Updating system with paru..."
+paru -Syu
 
 echo -e "\n📦 Updating flatpak packages..."
 flatpak update --assumeyes
@@ -11,17 +11,17 @@ flatpak update --assumeyes
 echo -e "\n🗑️ Removing orphaned packages..."
 orphans=$(pacman -Qdtq 2>/dev/null)
 if [ -n "$orphans" ]; then
-    sudo pacman -Rns $orphans
+  sudo pacman -Rns --noconfirm $orphans
 else
-    echo "✅ No orphaned packages found."
+  echo "✅ No orphaned packages found."
 fi
 
 echo -e "\n🧽 Cleaning unused flatpak runtimes..."
 flatpak uninstall --unused --assumeyes
 
+echo -e "\n🧹 Cleaning temporary directories..."
 sudo rm -rf /tmp/*
 sudo rm -rf /var/tmp/*
 
-
-
-echo -e "\n🎉 System update and cleanup complete!"
+echo -e "\n🎉 System update and cleanup complete!
+"
