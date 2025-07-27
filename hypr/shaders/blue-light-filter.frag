@@ -1,3 +1,4 @@
+#version 300 es
 // from https://github.com/hyprwm/Hyprland/issues/1140#issuecomment-1335128437
 
 
@@ -30,7 +31,8 @@ We only need to match the file name and use 'inc' to incdicate that
 
 
 precision highp float;
-varying vec2 v_texcoord;
+in vec2 v_texcoord;
+out vec4 fragColor;
 uniform sampler2D tex;
 
 
@@ -55,7 +57,7 @@ vec3 colorTemperatureToRGB(const in float TEMPERATURE) {
 }
 
 void main() {
-    vec4 pixColor = texture2D(tex, v_texcoord);
+    vec4 pixColor = texture(tex, v_texcoord);
 
     // RGB
     vec3 color = vec3(pixColor[0], pixColor[1], pixColor[2]);
@@ -69,5 +71,5 @@ void main() {
 
     vec4 outCol = vec4(color, pixColor[3]);
 
-    gl_FragColor = outCol;
+    fragColor = outCol;
 }
