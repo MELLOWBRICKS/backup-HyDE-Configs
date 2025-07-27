@@ -29,7 +29,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Load Oh My Zsh
 source "$ZSH/oh-my-zsh.sh"
 
-alias uplock='cat ~/.config/hypr/hyprlock/backup.conf > ~/.config/hypr/hyprlock/theme.conf'
 alias start='vagrant up'
 alias connect='vagrant ssh'
 alias stop='vagrant halt'
